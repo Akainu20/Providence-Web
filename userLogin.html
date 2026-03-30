@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Providence Memorial Park</title>
+    <link rel="stylesheet" href="userLogin.css">
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="header">
+            <h2><span class="icon">➜</span> Login</h2>
+            <p>Choose your account type and enter your credentials</p>
+        </div>
+
+        <div class="role-selector">
+            <button type="button" class="role-btn active" id="userBtn">👤 User</button>
+            <button type="button" class="role-btn" id="adminBtn">🛡️ Admin</button>
+        </div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="emailInput" placeholder="user@example.com">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="passwordInput" placeholder="Enter your password">
+            </div>
+
+            <button type="submit" class="btn-primary" id="submitBtn">Sign In as User</button>
+        </form>
+
+        <a href="landingPage.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        let selectedRole = 'user';
+
+        const userBtn = document.getElementById('userBtn');
+        const adminBtn = document.getElementById('adminBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const loginForm = document.getElementById('loginForm');
+
+        userBtn.addEventListener('click', () => {
+            selectedRole = 'user';
+            userBtn.classList.add('active');
+            adminBtn.classList.remove('active');
+            submitBtn.textContent = 'Sign In as User';
+        });
+
+        adminBtn.addEventListener('click', () => {
+            selectedRole = 'admin';
+            adminBtn.classList.add('active');
+            userBtn.classList.remove('active');
+            submitBtn.textContent = 'Sign In as Admin';
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            // Basic validation
+            if (!email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // TODO: Replace with real backend authentication
+            if (selectedRole === 'admin') {
+                window.location.href = 'admin/dashboard.html';
+            } else {
+                window.location.href = 'user/dashboard.html';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providence Memorial Park</title>
+    <link rel="stylesheet" href="landingPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <nav>
+            <div class="nav-brand">
+                <div class="nav-logo-mark">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="nav-brand-text">
+                    <span class="nav-brand-name">Providence Memorial Park</span>
+                    <span class="nav-brand-tagline">A Place of Peace and Remembrance</span>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="about"><a href="/about">About</a></li>
+                <li class="login"><a href="userLogin.html">Login</a></li>
+            </ul>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <!-- Mobile dropdown menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="landingpageCard">
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>
