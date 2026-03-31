@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register — Providence Memorial Park</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="registerAccount.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="landingPage.html">
+        <div class="brand-icon"><i class="bi bi-geo-alt-fill"></i></div>
+        <div>
+          <span class="brand-text-name">Providence Memorial Park</span>
+          <span class="brand-text-tag">A Place of Peace and Remembrance</span>
+        </div>
+      </a>
+      <a href="landingPage.html" class="nav-back">
+        <i class="bi bi-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-wrapper">
+
+    <div class="page-header">
+      <h1>Create Your Account</h1>
+      <p>Fill in your details to register. Your information will auto-fill future reservation forms.</p>
+    </div>
+
+    <!-- Step Bar -->
+    <div class="step-bar">
+      <div class="step-item active" id="si1"><div class="step-circle">1</div><div class="step-label">Personal</div></div>
+      <div class="step-connector" id="sc1"></div>
+      <div class="step-item" id="si2"><div class="step-circle">2</div><div class="step-label">Contact</div></div>
+      <div class="step-connector" id="sc2"></div>
+      <div class="step-item" id="si3"><div class="step-circle">3</div><div class="step-label">Account</div></div>
+      <div class="step-connector" id="sc3"></div>
+      <div class="step-item" id="si4"><div class="step-circle">4</div><div class="step-label">Valid ID</div></div>
+      <div class="step-connector" id="sc4"></div>
+      <div class="step-item" id="si5"><div class="step-circle">5</div><div class="step-label">Beneficiary</div></div>
+    </div>
+
+    <div class="form-card">
+      <form id="registerForm" novalidate>
+
+        <!-- STEP 1: PERSONAL INFORMATION -->
+        <div class="form-step active" id="step1">
+          <div class="section-heading">
+            <div class="section-icon"><i class="bi bi-person-fill"></i></div>
+            <div><h2>Personal Information</h2><span>Your basic identity details</span></div>
+          </div>
+          <div class="field-row cols-3">
+            <div class="field-group">
+              <label class="form-label">First Name <span class="req">*</span></label>
+              <input type="text" class="form-control" id="firstName" placeholder="e.g. Juan" required/>
+              <div class="invalid-feedback">First name is required.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Middle Name <span class="opt">(optional)</span></label>
+              <input type="text" class="form-control" id="middleName" placeholder="e.g. Santos"/>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Last Name <span class="req">*</span></label>
+              <input type="text" class="form-control" id="lastName" placeholder="e.g. Dela Cruz" required/>
+              <div class="invalid-feedback">Last name is required.</div>
+            </div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">Date of Birth <span class="req">*</span></label>
+              <input type="date" class="form-control" id="dob" required/>
+              <div class="invalid-feedback">Date of birth is required.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Sex <span class="req">*</span></label>
+              <select class="form-select" id="sex" required>
+                <option value="" disabled selected>Select sex</option>
+                <option>Male</option><option>Female</option>
+              </select>
+              <div class="invalid-feedback">Please select your sex.</div>
+            </div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">Civil Status <span class="req">*</span></label>
+              <select class="form-select" id="civilStatus" required>
+                <option value="" disabled selected>Select civil status</option>
+                <option>Single</option><option>Married</option><option>Widowed</option>
+                <option>Separated</option><option>Annulled</option>
+              </select>
+              <div class="invalid-feedback">Please select your civil status.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Nationality <span class="req">*</span></label>
+              <input type="text" class="form-control" id="nationality" value="Filipino" required/>
+              <div class="invalid-feedback">Nationality is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: CONTACT & ADDRESS -->
+        <div class="form-step" id="step2">
+          <div class="section-heading">
+            <div class="section-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><h2>Contact Information</h2><span>How we can reach you</span></div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">Email Address <span class="req">*</span></label>
+              <input type="email" class="form-control" id="email" placeholder="juan@email.com" required/>
+              <div class="invalid-feedback">Enter a valid email address.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Mobile Number <span class="req">*</span></label>
+              <input type="tel" class="form-control" id="mobile" placeholder="09XX XXX XXXX" maxlength="11" required/>
+              <div class="invalid-feedback">Enter a valid 11-digit mobile number.</div>
+            </div>
+          </div>
+          <div class="field-row cols-1">
+            <div class="field-group">
+              <label class="form-label">Landline <span class="opt">(optional)</span></label>
+              <input type="tel" class="form-control" id="landline" placeholder="(02) XXXX-XXXX"/>
+            </div>
+          </div>
+          <div class="section-heading mt-4">
+            <div class="section-icon"><i class="bi bi-house-fill"></i></div>
+            <div><h2>Home Address</h2><span>Your current residential address</span></div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">House / Unit No. &amp; Street <span class="req">*</span></label>
+              <input type="text" class="form-control" id="street" placeholder="e.g. 12 Mabini St." required/>
+              <div class="invalid-feedback">Street address is required.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Barangay <span class="req">*</span></label>
+              <input type="text" class="form-control" id="barangay" placeholder="e.g. Brgy. San Isidro" required/>
+              <div class="invalid-feedback">Barangay is required.</div>
+            </div>
+          </div>
+          <div class="field-row cols-3">
+            <div class="field-group">
+              <label class="form-label">City / Municipality <span class="req">*</span></label>
+              <input type="text" class="form-control" id="city" placeholder="e.g. Antipolo" required/>
+              <div class="invalid-feedback">City is required.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Province <span class="req">*</span></label>
+              <input type="text" class="form-control" id="province" placeholder="e.g. Rizal" required/>
+              <div class="invalid-feedback">Province is required.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">ZIP Code <span class="req">*</span></label>
+              <input type="text" class="form-control" id="zipCode" placeholder="e.g. 1870" maxlength="4" required/>
+              <div class="invalid-feedback">ZIP code is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: ACCOUNT CREDENTIALS -->
+        <div class="form-step" id="step3">
+          <div class="section-heading">
+            <div class="section-icon"><i class="bi bi-shield-lock-fill"></i></div>
+            <div><h2>Account Credentials</h2><span>Set up your login information</span></div>
+          </div>
+          <div class="field-row cols-1">
+            <div class="field-group">
+              <label class="form-label">Username <span class="req">*</span></label>
+              <input type="text" class="form-control" id="username" placeholder="Choose a unique username (min. 4 characters)" required/>
+              <div class="invalid-feedback">Username is required (min. 4 characters).</div>
+              <div class="info-note mt-2">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>You may also use your email address as your username.</span>
+              </div>
+            </div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">Password <span class="req">*</span></label>
+              <div class="pass-wrap">
+                <input type="password" class="form-control" id="password" placeholder="Create a strong password" required/>
+                <button type="button" class="pass-toggle" data-target="password"><i class="bi bi-eye"></i></button>
+              </div>
+              <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+              <div class="strength-text" id="strengthText">Enter a password</div>
+              <div class="invalid-feedback">Password must be at least 8 characters.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Confirm Password <span class="req">*</span></label>
+              <div class="pass-wrap">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required/>
+                <button type="button" class="pass-toggle" data-target="confirmPassword"><i class="bi bi-eye"></i></button>
+              </div>
+              <div class="invalid-feedback" id="confirmFeedback">Passwords do not match.</div>
+            </div>
+          </div>
+          <div class="info-note">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>Use at least 8 characters with a mix of uppercase, lowercase, numbers, and symbols.</span>
+          </div>
+        </div>
+
+        <!-- STEP 4: VALID ID -->
+        <div class="form-step" id="step4">
+          <div class="section-heading">
+            <div class="section-icon"><i class="bi bi-card-heading"></i></div>
+            <div><h2>Valid ID</h2><span>For identity verification before reservations are confirmed</span></div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">ID Type <span class="req">*</span></label>
+              <select class="form-select" id="idType" required>
+                <option value="" disabled selected>Select ID type</option>
+                <option>Philippine Passport</option>
+                <option>Driver's License</option>
+                <option>SSS ID</option><option>GSIS ID</option>
+                <option>PhilHealth ID</option><option>Pag-IBIG ID</option>
+                <option>Voter's ID / Voter's Certification</option>
+                <option>National ID (PhilSys)</option>
+                <option>Postal ID</option><option>PRC ID</option>
+                <option>Senior Citizen ID</option><option>PWD ID</option>
+                <option>Barangay ID</option><option>TIN ID</option>
+                <option>Company / School ID</option>
+              </select>
+              <div class="invalid-feedback">Please select a valid ID type.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">ID Number <span class="req">*</span></label>
+              <input type="text" class="form-control" id="idNumber" placeholder="Enter your ID number" required/>
+              <div class="invalid-feedback">ID number is required.</div>
+            </div>
+          </div>
+          <div class="field-row cols-1">
+            <div class="field-group">
+              <label class="form-label">Upload Photo of Valid ID <span class="req">*</span></label>
+              <div class="file-upload-area" id="uploadArea">
+                <input type="file" id="idPhoto" accept="image/*,.pdf"/>
+                <i class="bi bi-cloud-arrow-up"></i>
+                <div class="upload-title">Click to upload or drag and drop</div>
+                <div class="upload-sub">PNG, JPG, PDF — Max 5MB. Both sides if applicable.</div>
+              </div>
+              <div class="file-name-display" id="fileNameDisplay"></div>
+              <div class="info-note mt-2">
+                <i class="bi bi-shield-check"></i>
+                <span>Your ID will only be reviewed by authorized staff. It will not be shared with third parties.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: BENEFICIARY CONTACT -->
+        <div class="form-step" id="step5">
+          <div class="section-heading">
+            <div class="section-icon"><i class="bi bi-people-fill"></i></div>
+            <div><h2>Emergency / Beneficiary Contact</h2><span>This information will be used in your reservation form</span></div>
+          </div>
+          <div class="field-row cols-2">
+            <div class="field-group">
+              <label class="form-label">Name of Beneficiary / Next of Kin <span class="req">*</span></label>
+              <input type="text" class="form-control" id="beneName" placeholder="Full name" required/>
+              <div class="invalid-feedback">Beneficiary name is required.</div>
+            </div>
+            <div class="field-group">
+              <label class="form-label">Relationship <span class="req">*</span></label>
+              <select class="form-select" id="beneRelation" required>
+                <option value="" disabled selected>Select relationship</option>
+                <option>Spouse</option><option>Parent</option><option>Child</option>
+                <option>Sibling</option><option>Grandparent</option><option>Grandchild</option>
+                <option>Aunt / Uncle</option><option>Niece / Nephew</option><option>Cousin</option>
+                <option>Friend</option><option>Legal Guardian</option><option>Other</option>
+              </select>
+              <div class="invalid-feedback">Please select a relationship.</div>
+            </div>
+          </div>
+          <div class="field-row cols-1">
+            <div class="field-group">
+              <label class="form-label">Beneficiary Contact Number <span class="req">*</span></label>
+              <input type="tel" class="form-control" id="beneContact" placeholder="09XX XXX XXXX" maxlength="11" required/>
+              <div class="invalid-feedback">Enter a valid contact number.</div>
+            </div>
+          </div>
+          <div class="info-note mt-2">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>This contact's details will be automatically filled in your memorial lot reservation form.</span>
+          </div>
+        </div>
+
+        <!-- FORM NAVIGATION -->
+        <div class="form-nav" id="formNav">
+          <button type="button" class="btn-prev" id="btnPrev" style="visibility:hidden;">
+            <i class="bi bi-arrow-left"></i> Back
+          </button>
+          <span class="step-counter" id="stepCounter">Step 1 of 5</span>
+          <button type="button" class="btn-next" id="btnNext">
+            Continue <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- SUCCESS PANEL -->
+        <div class="success-panel" id="successPanel">
+          <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+          <h2>Registration Successful!</h2>
+          <p>Welcome to Providence Memorial Park. Your account has been created.<br>You can now log in and start reserving a memorial lot.</p>
+          <a href="#" class="btn-login-now"><i class="bi bi-box-arrow-in-right"></i> Proceed to Login</a>
+        </div>
+
+      </form>
+    </div>
+
+    <p class="login-prompt">Already have an account? <a href="#">Log in here</a></p>
+  </main>
+
+  <footer class="mini-footer">
+    © 2026 Providence Memorial Park Antipolo &nbsp;·&nbsp; All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="registerAccount.js"></script>
+  
+</body>
+</html>

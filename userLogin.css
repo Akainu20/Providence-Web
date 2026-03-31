@@ -178,3 +178,20 @@ body {
         font-size: 15px;
     }
 }
+
+.register-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.register-text a {
+    color: #005b41;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+    color: #005b41;
+}

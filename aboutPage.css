@@ -1,0 +1,201 @@
+/* ══ VARIABLES ════════════════════════════════════════ */
+:root {
+  --green:      #1a3a2a;
+  --green-mid:  #0d2b1e;
+  --beige:      #EDE8D0;
+  --black:      #1c1c1c;
+  --white:      #ffffff;
+  --muted:      #6f6f6f;
+  --border:     #ddd8ce;
+}
+
+/* ══ RESET ════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ══ BODY ═════════════════════════════════════════════ */
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--beige);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+/* ══ NAVBAR ═══════════════════════════════════════════ */
+/* identical structure to landing page .site-nav */
+.navbar {
+  background: linear-gradient(160deg, #0a2218 0%, var(--green-mid) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+}
+
+/* identical to landing page .nav-inner */
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* identical to landing page .brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+/* identical to landing page .brand-icon */
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #006647 0%, #014d34 100%);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0,102,71,0.32);
+}
+
+/* identical to landing page .brand-text-name */
+.brand-text-name {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+/* identical to landing page .brand-text-tag */
+.brand-text-tag {
+  display: block;
+  font-size: 0.67rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* identical to landing page .nav-links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* identical shared base to landing page .nav-about / .nav-login */
+.nav-home,
+.nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.52rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Home = outlined (matches landing .nav-about) */
+.nav-home {
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.7);
+  background: transparent;
+}
+.nav-home:hover {
+  background: var(--white);
+  color: var(--green);
+  border-color: var(--white);
+}
+
+/* Login = filled (matches landing .nav-login, inverted for dark bg) */
+.nav-login {
+  color: var(--green);
+  background: var(--white);
+  border: 1.5px solid var(--white);
+}
+.nav-login:hover {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* ══ ABOUT PAGE ═══════════════════════════════════════ */
+.about-page {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.about-page h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.about-page h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--green);
+  margin-top: 10px;
+}
+
+.about-page h2 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: var(--black);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+}
+
+.about-page p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ══ IMAGES ═══════════════════════════════════════════ */
+.about-images {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.about-images img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-images img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ══ RESPONSIVE ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .navbar        { padding: 0.85rem 1rem; }
+  .nav-inner     { flex-wrap: wrap; gap: 0.75rem; }
+  .about-page h1 { font-size: 32px; }
+  .about-page h2 { font-size: 22px; }
+  .about-images  { flex-direction: column; }
+  .about-images img { width: 100%; height: auto; }
+}
