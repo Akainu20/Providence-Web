@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Providence Memorial Park</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="profile_eventsPage.css" rel="stylesheet">
+  <link href="eventsPage.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <div class="brand-icon"><i class="bi bi-geo-alt-fill"></i></div>
+        <div>
+          <span class="brand-text-name">Providence Memorial Park</span>
+          <span class="brand-text-tag">A Place of Peace and Remembrance</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-link-item">Home</a>
+        <a href="#" class="nav-link-item">Lot Map</a>
+        <a href="#" class="nav-link-item active">Events</a>
+        <a href="profile.html" class="nav-link-item">My Profile</a>
+        <a href="#" class="nav-link-item nav-logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-overlay"></div>
+    <div class="page-header-content">
+      <span class="header-label">Community & Remembrance</span>
+      <h1>Events & Moments</h1>
+      <p>Captured memories from our gatherings, blessings, and celebrations.</p>
+    </div>
+  </section>
+
+  <!-- ALBUMS -->
+  <div id="albumsContainer"></div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <span class="footer-brand-name">Providence Memorial Park</span>
+          <div class="footer-gold-bar"></div>
+          <p class="footer-desc">A peaceful and dignified memorial park providing modern, convenient services for families across Manila and surrounding provinces.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-gold-bar"></div>
+          <ul class="footer-links-list">
+            <li><a href="#">Memorial Lots</a></li>
+            <li><a href="#">Mausoleum Spaces</a></li>
+            <li><a href="#">Columbarium Units</a></li>
+            <li><a href="#">Chapel Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-gold-bar"></div>
+          <ul class="footer-contacts">
+            <li><i class="bi bi-telephone-fill"></i><span>+63 912 345 6789</span></li>
+            <li><i class="bi bi-envelope-fill"></i><span>info@providencememorial.ph</span></li>
+            <li><i class="bi bi-geo-alt-fill"></i><span>123 Memorial Road, Brgy. Placeholder,<br>Manila, Philippines 1000</span></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2024 Providence Memorial Park. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ══════════════════════════════════════════════════════════════
+    //  EVENT ALBUMS
+    //
+    //  Each event = album with a collage of photos.
+    //  The collage layout auto-adjusts based on photo count.
+    //
+    //  To UPDATE:
+    //    - Add/remove/reorder objects in this array.
+    //    - Add real image paths to "src" (e.g. "images/event/1.jpg").
+    //    - Leave src: "" to show a placeholder.
+    //
+    //  Fields per album:
+    //    title   — Event name
+    //    date    — Full display date
+    //    day     — Day number (for the badge)
+    //    month   — 3-letter month (for the badge)
+    //    desc    — Short description
+    //    icon    — Bootstrap icon name (e.g. "bi-stars")
+    //    photos  — Array of { src, caption }
+    // ══════════════════════════════════════════════════════════════
+
+    const eventAlbums = [
+      {
+        title: "All Saints' Day 2024",
+        date:  "November 1, 2024",
+        day:   "01",
+        month: "NOV",
+        desc:  "Families gathered to honor their departed loved ones with candle-lighting, flowers, and heartfelt prayers across the memorial grounds.",
+        icon:  "bi-stars",
+        photos: [
+          { src: "", caption: "Candle-lighting along the main pathway" },
+          { src: "", caption: "Flower arrangements at the lots" },
+          { src: "", caption: "Families visiting loved ones" },
+          { src: "", caption: "Evening prayer service at the chapel" },
+          { src: "", caption: "Children lighting candles" },
+          { src: "", caption: "Holy mass celebration" },
+          { src: "", caption: "Garden area decorations" },
+          { src: "", caption: "Sunset over the memorial grounds" }
+        ]
+      },
+      {
+        title: "Annual Blessing of the Grounds",
+        date:  "September 14, 2024",
+        day:   "14",
+        month: "SEP",
+        desc:  "A solemn blessing ceremony led by Fr. Antonio Reyes, joined by families from across Antipolo and Rizal.",
+        icon:  "bi-droplet",
+        photos: [
+          { src: "", caption: "The blessing procession begins" },
+          { src: "", caption: "Holy water blessing of the grounds" },
+          { src: "", caption: "Families gathered in prayer" },
+          { src: "", caption: "Chapel ceremony" },
+          { src: "", caption: "Staff and volunteers" },
+          { src: "", caption: "Group photo after the blessing" }
+        ]
+      },
+      {
+        title: "Community Feeding Program",
+        date:  "August 21, 2024",
+        day:   "21",
+        month: "AUG",
+        desc:  "Providence staff and volunteers organized a feeding program for families in Brgy. Masinloc.",
+        icon:  "bi-heart",
+        photos: [
+          { src: "", caption: "Volunteers preparing meals" },
+          { src: "", caption: "Food distribution to families" },
+          { src: "", caption: "Children enjoying their meals" },
+          { src: "", caption: "Group photo with volunteers and families" }
+        ]
+      },
+      {
+        title: "Providence Anniversary & Open House",
+        date:  "July 5, 2024",
+        day:   "05",
+        month: "JUL",
+        desc:  "Celebrating years of service with guided park tours, an open house, and special offers for families.",
+        icon:  "bi-gift",
+        photos: [
+          { src: "", caption: "Ribbon cutting ceremony" },
+          { src: "", caption: "Guided tour of the memorial park" },
+          { src: "", caption: "Information booth for visitors" },
+          { src: "", caption: "Anniversary cake cutting" },
+          { src: "", caption: "Staff appreciation moment" },
+          { src: "", caption: "Families exploring the new section" },
+          { src: "", caption: "Live entertainment program" },
+          { src: "", caption: "Closing prayer and thanksgiving" }
+        ]
+      }
+    ];
+
+
+    // ── Choose layout class based on photo count ──
+    function getLayoutClass(count) {
+      if (count === 1) return 'layout-1';
+      if (count === 2) return 'layout-2';
+      if (count === 3) return 'layout-3';
+      if (count === 4) return 'layout-4';
+      if (count === 6) return 'layout-6';
+      if (count === 8) return 'layout-8';
+      return 'layout-default';
+    }
+
+    // ── Render ──
+    const container = document.getElementById('albumsContainer');
+
+    if (eventAlbums.length === 0) {
+      container.innerHTML = `
+        <div class="events-main">
+          <div class="container-inner">
+            <div class="empty-state">
+              <i class="bi bi-camera"></i>
+              <h5>No Event Photos Yet</h5>
+              <p>Check back soon for photos from our gatherings.</p>
+            </div>
+          </div>
+        </div>`;
+    } else {
+      container.innerHTML = eventAlbums.map((album, index) => `
+        ${index > 0 ? `<div class="album-divider"><div class="album-divider-inner"><div class="album-divider-line"></div></div></div>` : ''}
+        <div class="event-album">
+          <div class="album-inner">
+
+            <div class="album-header">
+              <div class="album-number">
+                <span class="num-day">${album.day}</span>
+                <span class="num-month">${album.month}</span>
+              </div>
+              <div class="album-info">
+                <div class="album-date-text">${album.date}</div>
+                <h3>${album.title}</h3>
+                ${album.desc ? `<p class="album-desc">${album.desc}</p>` : ''}
+                <div class="album-meta">
+                  <span class="album-tag"><i class="bi ${album.icon || 'bi-calendar-event'}"></i> ${album.title.split(' ')[0]}</span>
+                  <span class="album-tag"><i class="bi bi-images"></i> ${album.photos.length} photos</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collage ${getLayoutClass(album.photos.length)}">
+              ${album.photos.map(photo => `
+                <div class="photo-item" 
+                     data-src="${photo.src}" 
+                     data-caption="${photo.caption || ''}"
+                     onclick="openLightbox(this)">
+                  ${photo.src
+                    ? `<img src="${photo.src}" alt="${photo.caption || album.title}" loading="lazy">`
+                    : `<div class="photo-placeholder"><i class="bi bi-image"></i><span>Photo</span></div>`
+                  }
+                  ${photo.caption ? `<div class="photo-caption-overlay"><span>${photo.caption}</span></div>` : ''}
+                </div>
+              `).join('')}
+            </div>
+
+          </div>
+        </div>
+      `).join('');
+    }
+
+
+    // ── Lightbox ──
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCap = document.getElementById('lightboxCaption');
+
+    function openLightbox(el) {
+      const src = el.getAttribute('data-src');
+      if (!src) return;
+      lightboxImg.src = src;
+      lightboxCap.textContent = el.getAttribute('data-caption') || '';
+      lightbox.classList.add('active');
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+  </script>
+</body>
+</html>
