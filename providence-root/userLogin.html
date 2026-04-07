@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Providence Memorial Park</title>
-    <link rel="stylesheet" href="userLogin.css">
+    <link rel="stylesheet" href="../assets/css/providence.css">
 </head>
-<body>
-
-    <div class="login-card">
+<body class="login-page"> <div class="login-card">
         <div class="header">
             <h2><span class="icon">➜</span> Login</h2>
             <p>Choose your account type and enter your credentials</p>
@@ -22,21 +20,21 @@
         <form id="loginForm">
             <div class="input-group">
                 <label>Email</label>
-                <input type="email" id="emailInput" placeholder="user@example.com">
+                <input type="email" id="emailInput" placeholder="user@example.com" required>
             </div>
 
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" id="passwordInput" placeholder="Enter your password">
+                <input type="password" id="passwordInput" placeholder="Enter your password" required>
             </div>
 
             <button type="submit" class="btn-primary" id="submitBtn">Sign In as User</button>
         </form>
-    <!--For registration button ────────────────────────────────── -->
-        <p class="register-text">
-        Don't have an account? <a href="registerAccount.html">Register</a>
+
+    <p class="register-text">
+            Don't have an account? <a href="registerAccount.html">Register</a>
         </p>
-        <a href="landingPage.html" class="back-link">Back to Home</a>
+        <a href="../landingPage/index.html" class="back-link">Back to Home</a>
     </div>
 
     <script>
@@ -67,13 +65,12 @@
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passwordInput').value;
 
-            // Basic validation
+            //Basic validation
             if (!email || !password) {
                 alert('Please fill in all fields.');
                 return;
             }
-
-            // TODO: Replace with real backend authentication
+            //TODO: Replace with real backend authentication
             if (selectedRole === 'admin') {
                 window.location.href = 'admin/dashboard.html';
             } else {
