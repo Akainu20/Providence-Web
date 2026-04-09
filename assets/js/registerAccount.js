@@ -1,13 +1,23 @@
-/* ══ REGISTER.JS ══════════════════════════════════════ */
+/* ══ REGISTER.JS — 3 STEPS ════════════════════════════ */
 
-var TOTAL = 5;
+var TOTAL = 3;
 var current = 1;
 
 var btnNext     = document.getElementById('btnNext');
 var btnPrev     = document.getElementById('btnPrev');
 var stepCounter = document.getElementById('stepCounter');
 
-/* ── SHOW STEP ──────────────────────────────────────── */
+/* ── Auto-calculate age from birthday ─────────────── */
+document.getElementById('birthday').addEventListener('change', function() {
+  var dob = new Date(this.value);
+  var today = new Date();
+  var age = today.getFullYear() - dob.getFullYear();
+  var m = today.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+  document.getElementById('age').value = age > 0 ? age : '';
+});
+
+/* ── SHOW STEP ────────────────────────────────────── */
 function showStep(n) {
   document.querySelectorAll('.form-step').forEach(function(s) {
     s.classList.toggle('active', s.id === 'step' + n);
@@ -34,11 +44,10 @@ function showStep(n) {
     : 'Continue <i class="bi bi-arrow-right"></i>';
 }
 
-/* ── VALIDATION ─────────────────────────────────────── */
+/* ── VALIDATION ───────────────────────────────────── */
 var RULES = {
   email:           function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); },
   mobile:          function(v) { return /^09\d{9}$/.test(v); },
-  beneContact:     function(v) { return /^09\d{9}$/.test(v); },
   username:        function(v) { return v.length >= 4; },
   password:        function(v) { return v.length >= 8; },
   confirmPassword: function(v) { return v === document.getElementById('password').value; }
@@ -69,7 +78,7 @@ function validateStep(n) {
   return valid;
 }
 
-/* ── NAV BUTTONS ────────────────────────────────────── */
+/* ── NAV BUTTONS ──────────────────────────────────── */
 btnNext.addEventListener('click', function() {
   if (!validateStep(current)) return;
   if (current < TOTAL) {
@@ -89,13 +98,13 @@ btnPrev.addEventListener('click', function() {
   }
 });
 
-/* ── CLEAR INVALID ON INPUT ─────────────────────────── */
+/* ── CLEAR INVALID ON INPUT ───────────────────────── */
 document.querySelectorAll('.form-control, .form-select').forEach(function(el) {
   el.addEventListener('input',  function() { el.classList.remove('is-invalid'); });
   el.addEventListener('change', function() { el.classList.remove('is-invalid'); });
 });
 
-/* ── PASSWORD TOGGLE ────────────────────────────────── */
+/* ── PASSWORD TOGGLE ──────────────────────────────── */
 document.querySelectorAll('.pass-toggle').forEach(function(btn) {
   btn.addEventListener('click', function() {
     var input = document.getElementById(btn.getAttribute('data-target'));
@@ -105,7 +114,7 @@ document.querySelectorAll('.pass-toggle').forEach(function(btn) {
   });
 });
 
-/* ── PASSWORD STRENGTH ──────────────────────────────── */
+/* ── PASSWORD STRENGTH ────────────────────────────── */
 var LEVELS = [
   { pct: '0%',   color: '#c8ddd2', label: 'Enter a password' },
   { pct: '25%',  color: '#e74c3c', label: 'Weak'   },
@@ -132,22 +141,9 @@ document.getElementById('password').addEventListener('input', function() {
   text.style.color      = score === 0 ? 'var(--muted)' : lvl.color;
 });
 
-/* ── FILE UPLOAD ────────────────────────────────────── */
-document.getElementById('idPhoto').addEventListener('change', function() {
-  var display = document.getElementById('fileNameDisplay');
-  var area    = document.getElementById('uploadArea');
-  if (this.files && this.files[0]) {
-    display.textContent    = '✓ ' + this.files[0].name;
-    area.style.borderColor = 'var(--green)';
-    area.style.background  = 'var(--green-light)';
-  } else {
-    display.textContent = '';
-  }
-});
-
-/* ── SUBMIT ─────────────────────────────────────────── */
+/* ── SUBMIT ───────────────────────────────────────── */
 function submitForm() {
-  document.getElementById('step5').style.display        = 'none';
+  document.getElementById('step3').style.display        = 'none';
   document.getElementById('formNav').style.display      = 'none';
   document.getElementById('successPanel').style.display = 'block';
 
